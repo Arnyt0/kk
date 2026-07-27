@@ -1,0 +1,24 @@
+---
+title: "Do home batteries pay for themselves yet? Running the arithmetic"
+description: "Battery value is mostly the retail–export price spread times the extra kilowatt-hours you stop exporting."
+date: "2026-01-29"
+readingTime: "8 min"
+---
+
+## The core identity
+
+Extra self-consumed kWh ≈ min(usable capacity × round-trip efficiency × cycles/year, kWh you currently export)
+
+Annual saving ≈ extra self-consumed × (grid price − export price)
+
+Payback ≈ battery cost ÷ annual saving
+
+## The life check
+
+If payback exceeds cycle_life ÷ cycles_per_year, the pack may hit its cycle limit before it has paid for itself — on those assumptions.
+
+## What this model ignores
+
+Peak shaving for demand charges, backup value, tariff arbitrage without solar, and degradation of capacity over time. Those can matter. Add them manually if they apply to you.
+
+Open the [battery ROI calculator](/tools/battery-roi) and stress-test the spread and exported kWh first.
