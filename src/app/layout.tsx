@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     description:
       "Transparent solar payback, battery ROI, heat pump and EV charging calculators.",
   },
+  verification: {
+    google: "y1S1WfHgqSAqZLNiKZ9nneoWz2hiI3IIEwc3u5irT1I",
+  },
   other: {
     "google-adsense-account": "ca-pub-4517726775065181",
   },
