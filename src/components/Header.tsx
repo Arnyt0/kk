@@ -6,7 +6,7 @@ import { useState } from "react";
 import { RegionSelector } from "@/components/RegionSelector";
 
 const NAV = [
-  { href: "/tools/solar-payback", label: "Tools" },
+  { href: "/tools", label: "Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ];
@@ -32,7 +32,7 @@ export function Header() {
             const active =
               item.href === "/blog"
                 ? pathname.startsWith("/blog")
-                : item.href.startsWith("/tools")
+                : item.href === "/tools"
                   ? pathname.startsWith("/tools")
                   : pathname === item.href;
             return (

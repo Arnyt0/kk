@@ -12,7 +12,7 @@ export default function TermsPage() {
         Terms of use
       </h1>
       <div className="prose-blog mt-6 space-y-4 text-sm">
-        <p>Last updated: TODO — date</p>
+        <p>Last updated: 27 July 2026</p>
         <p>
           By using WattPayback you agree that the calculators and articles are
           provided for general information only. They are estimates based on
@@ -29,8 +29,8 @@ export default function TermsPage() {
           survey and independent advice before spending money.
         </p>
         <p>
-          {/* TODO: governing law */}
-          Governing law: TODO — jurisdiction.
+          These terms are governed by the laws applicable in the operator&apos;s
+          country of residence, without regard to conflict-of-law rules.
         </p>
       </div>
     </div>

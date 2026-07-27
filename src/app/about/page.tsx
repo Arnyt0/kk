@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OPERATOR } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -30,13 +31,8 @@ export default function AboutPage() {
           before spending money.
         </p>
         <p>
-          {/* TODO: add personal / operator details */}
-          Operator details: TODO — name, location and contact email to be filled
-          in by the site owner. Do not treat placeholder text as a company
-          identity.
-        </p>
-        <p>
-          Questions? See the <Link href="/contact">contact</Link> page or read
+          Operated by <strong>{OPERATOR.name}</strong>. For corrections or
+          questions, see the <Link href="/contact">contact</Link> page or read
           the <Link href="/disclaimer">disclaimer</Link>.
         </p>
       </div>

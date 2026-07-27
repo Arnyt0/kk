@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://wattpayback.com
+Host: https://kk-livid-seven.vercel.app
 
 # Sitemaps
-Sitemap: https://wattpayback.com/sitemap.xml
+Sitemap: https://kk-livid-seven.vercel.app/sitemap.xml

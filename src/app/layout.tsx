@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AdSenseScript } from "@/components/AdSenseScript";
 import { RegionProvider } from "@/context/RegionContext";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const body = Source_Sans_3({
@@ -26,9 +27,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.SITE_URL || "https://wattpayback.com",
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "WattPayback — Neutral home energy & solar calculators",
     template: "%s · WattPayback",

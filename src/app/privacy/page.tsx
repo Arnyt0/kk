@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OPERATOR } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -12,7 +13,7 @@ export default function PrivacyPage() {
         Privacy policy
       </h1>
       <div className="prose-blog mt-6 space-y-4 text-sm">
-        <p>Last updated: TODO — date</p>
+        <p>Last updated: 27 July 2026</p>
         <p>
           WattPayback calculators run entirely in your browser. Inputs you type
           into tools are not sent to a WattPayback server for calculation (there
@@ -28,24 +29,26 @@ export default function PrivacyPage() {
           and articles). Until Google AdSense (or another network) is connected,
           those slots may link to partner / sponsor destinations. When AdSense is
           enabled, Google and its partners may use cookies or similar technologies
-          to serve personalized or non-personalized ads subject to your consent
-          choices and Google&apos;s policies.
+          to serve ads subject to Google&apos;s policies and your choices.
         </p>
         <p>
-          {/* TODO: add AdSense / CMP details once live */}
-          Publisher / AdSense ID: TODO — set{" "}
-          <code>NEXT_PUBLIC_ADSENSE_CLIENT</code> in the host environment.
+          To enable AdSense, set <code>NEXT_PUBLIC_ADSENSE_CLIENT</code> in the
+          host environment (see <code>.env.example</code>).
         </p>
         <h2>Hosting and logs</h2>
         <p>
           The site is hosted on Vercel. Hosting providers may process standard
-          server logs (IP address, user agent, pages requested). TODO — name any
-          additional analytics once enabled.
+          server logs (IP address, user agent, pages requested).
         </p>
         <h2>Contact</h2>
         <p>
-          Privacy requests: TODO — privacy@email.example (replace with your
-          address).
+          Privacy requests:{" "}
+          <a
+            className="text-accent-deep underline underline-offset-2"
+            href={`mailto:${OPERATOR.email}`}
+          >
+            {OPERATOR.email}
+          </a>
         </p>
       </div>
     </div>

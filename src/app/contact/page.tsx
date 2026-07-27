@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OPERATOR } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,21 +14,21 @@ export default function ContactPage() {
       </h1>
       <div className="prose-blog mt-6 space-y-4">
         <p>
-          For corrections, formula questions or privacy requests, reach the
-          site operator using the details below.
+          For corrections, formula questions, advertising, or privacy requests,
+          reach the site operator using the details below.
         </p>
-        <div className="border border-line bg-surface p-4 text-sm text-ink-muted">
+        <div className="border border-line bg-surface p-4 text-sm text-ink">
           <p>
-            {/* TODO: replace with real contact details */}
-            Email: TODO — your@email.example
+            <span className="text-ink-muted">Name:</span> {OPERATOR.name}
           </p>
           <p className="mt-2">
-            {/* TODO: replace with real operator name */}
-            Name: TODO — operator name
-          </p>
-          <p className="mt-2">
-            {/* TODO: optional postal address */}
-            Address: TODO — optional postal address
+            <span className="text-ink-muted">Email:</span>{" "}
+            <a
+              className="text-accent-deep underline underline-offset-2"
+              href={`mailto:${OPERATOR.email}`}
+            >
+              {OPERATOR.email}
+            </a>
           </p>
         </div>
         <p>

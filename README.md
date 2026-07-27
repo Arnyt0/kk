@@ -2,12 +2,15 @@
 
 Neutral, transparent home-energy and solar calculators.
 
+**Live:** https://kk-livid-seven.vercel.app
+
 ## Stack
 
 - Next.js 15 (App Router) + TypeScript + Tailwind CSS
-- Client-side calculator math only (no API routes / database)
-- MDX blog posts in `content/blog/`
+- Client-side calculator math only (no API / database)
+- MDX blog in `content/blog/` (12 articles)
 - Inline SVG charts (no chart library)
+- Ad slots ready for AdSense or sponsor links
 - `next-sitemap` for sitemap + robots.txt
 
 ## Develop
@@ -23,22 +26,15 @@ npm run dev
 npm run build
 ```
 
-## Tools
+## Site map
 
-Nine calculators under `/tools/*` — see the home page. Region defaults (yield + currency) live in React context and localStorage.
-
-Personal/operator details are marked with `TODO` on About, Contact, Privacy and Terms.
+- `/` — home
+- `/tools` — all 9 calculators
+- `/tools/*` — individual tools
+- `/blog`, `/blog/[slug]`
+- `/about`, `/contact`, `/privacy`, `/terms`, `/disclaimer`
 
 ## Ads
 
-Reserved ad slots live in `src/components/AdSlot.tsx` and are configured in
-`src/lib/ads.ts`. Until AdSense IDs are set, slots show linked placeholder
-units (`rel="sponsored"`).
-
-Set in Vercel → Environment Variables (see `.env.example`):
-
-- `NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-...`
-- `NEXT_PUBLIC_ADS_SLOT_*` per placement
-
-Or edit the `href` values in `src/lib/ads.ts` to point each slot at your
-affiliate / sponsor URLs.
+Configured in `src/lib/ads.ts`. Placeholders are linked until AdSense IDs are set
+in Vercel env vars (see `.env.example`).
