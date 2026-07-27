@@ -7,6 +7,6 @@ export const SITE_NAME = "WattPayback";
 
 /** Operator — filled from the site owner. Update if you prefer a pen name. */
 export const OPERATOR = {
-  name: "Arnošt Jurech",
-  email: "arnostju@gmail.com",
+  name: "Arny",
+  email: "fujira.studios@gmail.com",
 };
