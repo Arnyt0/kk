@@ -60,7 +60,7 @@ export function NumberInput({
           {tooltip}
         </div>
       )}
-      <div className="flex items-stretch border border-line bg-surface focus-within:border-accent">
+      <div className="input-glow flex items-stretch border border-line bg-surface transition-shadow focus-within:border-accent">
         <input
           id={id}
           type="number"

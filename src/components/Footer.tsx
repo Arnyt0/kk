@@ -1,10 +1,30 @@
 import Link from "next/link";
 import { TOOLS } from "@/lib/tools";
-import { BrandMark } from "@/components/Icons";
+import { BrandMark, IconArrow } from "@/components/Icons";
+import { OPERATOR } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-line bg-bg-elevated">
+      <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
+        <div className="flex flex-col items-start justify-between gap-4 border border-line bg-surface p-5 sm:flex-row sm:items-center">
+          <div>
+            <p className="font-[family-name:var(--font-display)] text-lg font-bold text-ink">
+              Questions or partnerships?
+            </p>
+            <p className="mt-1 text-sm text-ink-muted">
+              Write via the contact form or {OPERATOR.email}
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="btn-primary inline-flex items-center gap-2 bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-deep"
+          >
+            Contact
+            <IconArrow size={16} />
+          </Link>
+        </div>
+      </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2.5">

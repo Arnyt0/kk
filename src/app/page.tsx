@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
 import { AdSlot } from "@/components/AdSlot";
 import { HeroArt } from "@/components/HeroArt";
+import { Reveal } from "@/components/Reveal";
 import { IconFormula, IconSun, BrandMark } from "@/components/Icons";
 import { TOOLS } from "@/lib/tools";
 import { getAllPosts } from "@/lib/blog";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative overflow-hidden border-b border-line">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 accent-shimmer" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <div className="hero-rise section-mark text-accent">
@@ -37,7 +39,7 @@ export default function HomePage() {
                 href="/tools/solar-payback"
                 className="btn-primary inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-deep"
               >
-                <IconSun size={18} />
+                <IconSun size={18} className="bob" />
                 Open solar payback
               </Link>
               <Link
@@ -57,20 +59,22 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="section-mark font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-              <IconFormula size={14} />
-              Toolkit
-            </p>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink">
-              Nine calculators
-            </h2>
-            <p className="mt-2 text-sm text-ink-muted">
-              Live results. Region defaults you can override.
-            </p>
+        <Reveal>
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="section-mark font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                <IconFormula size={14} />
+                Toolkit
+              </p>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink">
+                Nine calculators
+              </h2>
+              <p className="mt-2 text-sm text-ink-muted">
+                Live results. Region defaults you can override.
+              </p>
+            </div>
           </div>
-        </div>
+        </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool, i) => (
             <ToolCard key={tool.slug} tool={tool} index={i} />
@@ -82,47 +86,66 @@ export default function HomePage() {
 
       <section className="border-t border-line bg-bg-elevated">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="section-mark font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-                Guides
-              </p>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink">
-                Latest from the blog
-              </h2>
-              <p className="mt-2 text-sm text-ink-muted">
-                How the numbers work — and where installer quotes diverge.
-              </p>
+          <Reveal>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="section-mark font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                  Guides
+                </p>
+                <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink">
+                  Latest from the blog
+                </h2>
+                <p className="mt-2 text-sm text-ink-muted">
+                  How the numbers work — and where installer quotes diverge.
+                </p>
+              </div>
+              <Link
+                href="/blog"
+                className="text-sm font-semibold text-accent-deep hover:underline"
+              >
+                All posts →
+              </Link>
             </div>
-            <Link
-              href="/blog"
-              className="text-sm font-semibold text-accent-deep hover:underline"
-            >
-              All posts →
-            </Link>
-          </div>
+          </Reveal>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {posts.map((post, i) => (
-              <li
-                key={post.slug}
-                className="stagger-card"
-                style={{ animationDelay: `${0.05 * i}s` }}
-              >
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="tool-card block h-full border border-line bg-surface p-5 hover:border-accent hover:bg-accent-soft/40"
-                >
-                  <p className="font-mono text-xs text-ink-muted">{post.date}</p>
-                  <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-ink">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                    {post.description}
-                  </p>
-                </Link>
+              <li key={post.slug}>
+                <Reveal delay={i * 80}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="tool-card block h-full border border-line bg-surface p-5 hover:border-accent hover:bg-accent-soft/40"
+                  >
+                    <p className="font-mono text-xs text-ink-muted">{post.date}</p>
+                    <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-ink">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                      {post.description}
+                    </p>
+                  </Link>
+                </Reveal>
               </li>
             ))}
           </ul>
+
+          <Reveal delay={120} className="mt-10">
+            <div className="flex flex-col items-start justify-between gap-4 border border-line bg-surface p-5 sm:flex-row sm:items-center">
+              <div>
+                <p className="font-[family-name:var(--font-display)] text-lg font-bold text-ink">
+                  Need a correction or want to advertise?
+                </p>
+                <p className="mt-1 text-sm text-ink-muted">
+                  The contact form works — messages go to the site operator.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-deep"
+              >
+                Open contact
+              </Link>
+            </div>
+          </Reveal>
 
           <AdSlot placement="home-bottom" className="mt-12" />
         </div>

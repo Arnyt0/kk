@@ -13,7 +13,7 @@ export function ResultCard({
 }) {
   return (
     <div
-      className={`border px-4 py-3 ${
+      className={`result-pop border px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5 ${
         emphasize
           ? "border-accent bg-accent-soft"
           : "border-line bg-surface"

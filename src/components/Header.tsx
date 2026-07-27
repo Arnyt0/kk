@@ -10,6 +10,7 @@ const NAV = [
   { href: "/tools", label: "Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -46,14 +47,12 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm font-medium transition-colors ${
+                data-active={active}
+                className={`nav-ink text-sm font-medium transition-colors ${
                   active ? "text-accent-deep" : "text-ink-muted hover:text-ink"
                 }`}
               >
                 {item.label}
-                {active && (
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-accent" />
-                )}
               </Link>
             );
           })}
