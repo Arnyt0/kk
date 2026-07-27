@@ -2,7 +2,7 @@
 
 Neutral, transparent home-energy and solar calculators.
 
-**Live:** https://kk-livid-seven.vercel.app
+**Live:** https://wattpayback.com
 
 ## Stack
 

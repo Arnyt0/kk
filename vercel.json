@@ -4,6 +4,6 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "env": {
-    "SITE_URL": "https://kk-livid-seven.vercel.app"
+    "SITE_URL": "https://wattpayback.com"
   }
 }
