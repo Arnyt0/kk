@@ -29,9 +29,10 @@ export type AdPlacement = {
   size: "leaderboard" | "rectangle" | "mobile-banner";
 };
 
-/** TODO: replace with your AdSense publisher ID, e.g. ca-pub-xxxxxxxxxxxxxxxx */
+/** Google AdSense publisher ID */
 export const ADSENSE_CLIENT =
-  process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim() || "";
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim() ||
+  "ca-pub-4517726775065181";
 
 export const ADS_ENABLED =
   process.env.NEXT_PUBLIC_ADS_ENABLED === "true" || Boolean(ADSENSE_CLIENT);

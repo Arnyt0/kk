@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { AdSenseScript } from "@/components/AdSenseScript";
 import { RegionProvider } from "@/context/RegionContext";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -41,6 +40,9 @@ export const metadata: Metadata = {
     description:
       "Transparent solar payback, battery ROI, heat pump and EV charging calculators.",
   },
+  other: {
+    "google-adsense-account": "ca-pub-4517726775065181",
+  },
 };
 
 export default function RootLayout({
@@ -50,10 +52,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google AdSense Auto ads — on every page */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4517726775065181"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${body.variable} ${display.variable} ${mono.variable} antialiased`}
       >
-        <AdSenseScript />
         <RegionProvider>
           <Header />
           <main className="min-h-[70vh]">{children}</main>

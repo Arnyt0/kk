@@ -32,8 +32,7 @@ export default function PrivacyPage() {
           to serve ads subject to Google&apos;s policies and your choices.
         </p>
         <p>
-          To enable AdSense, set <code>NEXT_PUBLIC_ADSENSE_CLIENT</code> in the
-          host environment (see <code>.env.example</code>).
+          Google AdSense publisher ID: <code>ca-pub-4517726775065181</code>.
         </p>
         <h2>Hosting and logs</h2>
         <p>

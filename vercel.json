@@ -4,6 +4,7 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "env": {
-    "SITE_URL": "https://wattpayback.com"
+    "SITE_URL": "https://wattpayback.com",
+    "NEXT_PUBLIC_ADSENSE_CLIENT": "ca-pub-4517726775065181"
   }
 }

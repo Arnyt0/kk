@@ -27,17 +27,23 @@ type AdSlotProps = {
 
 export function AdSlot({ placement, className = "" }: AdSlotProps) {
   const ad = getAd(placement);
-  const useAdsense = Boolean(ADSENSE_CLIENT && ad.adsenseSlot);
+  const useAdsenseUnit = Boolean(ADSENSE_CLIENT && ad.adsenseSlot);
+  const autoAdsOnly = Boolean(ADSENSE_CLIENT && !ad.adsenseSlot);
   const external = ad.href.startsWith("http");
 
   useEffect(() => {
-    if (!useAdsense) return;
+    if (!useAdsenseUnit) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
       /* AdSense not ready */
     }
-  }, [useAdsense, ad.adsenseSlot]);
+  }, [useAdsenseUnit, ad.adsenseSlot]);
+
+  // Auto ads mode: client is set, no manual slot — Google places ads itself
+  if (autoAdsOnly) {
+    return null;
+  }
 
   const body = (
     <span className="max-w-sm">
@@ -62,7 +68,7 @@ export function AdSlot({ placement, className = "" }: AdSlotProps) {
         Advertisement
       </p>
 
-      {useAdsense ? (
+      {useAdsenseUnit ? (
         <ins
           className={`adsbygoogle block ${SIZE_CLASS[ad.size]}`}
           style={{ display: "block" }}
