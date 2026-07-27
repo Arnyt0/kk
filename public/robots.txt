@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://wattpayback.com
+
+# Sitemaps
+Sitemap: https://wattpayback.com/sitemap.xml
