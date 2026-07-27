@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { RelatedTools } from "@/components/RelatedTools";
 import { Faq, type FaqItem } from "@/components/Faq";
 import { AdSlot } from "@/components/AdSlot";
+import { ToolIcon } from "@/components/Icons";
 
 export function CalculatorShell({
   title,
@@ -19,13 +20,18 @@ export function CalculatorShell({
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-          Calculator
-        </p>
-        <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+        <div className="section-mark text-accent">
+          <span className="inline-flex h-8 w-8 items-center justify-center border border-accent/30 bg-accent-soft">
+            <ToolIcon slug={slug} size={18} />
+          </span>
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]">
+            Calculator
+          </span>
+        </div>
+        <h1 className="hero-rise mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl">
           {title}
         </h1>
-        <p className="mt-3 text-base leading-relaxed text-ink-muted">
+        <p className="hero-rise-delay mt-3 text-base leading-relaxed text-ink-muted">
           {description}
         </p>
       </div>
@@ -52,7 +58,7 @@ export function DisclaimerLine() {
 
 export function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-ink-muted">
+    <h2 className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
       {children}
     </h2>
   );

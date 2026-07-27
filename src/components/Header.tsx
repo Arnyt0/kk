@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { RegionSelector } from "@/components/RegionSelector";
+import { BrandMark } from "@/components/Icons";
 
 const NAV = [
   { href: "/tools", label: "Tools" },
@@ -18,12 +19,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-bg-elevated/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex items-baseline gap-2">
-          <span className="font-[family-name:var(--font-display)] text-xl font-bold tracking-tight text-ink sm:text-2xl">
-            WattPayback
-          </span>
-          <span className="hidden text-xs text-ink-muted sm:inline">
-            neutral energy math
+        <Link href="/" className="group flex items-center gap-2.5">
+          <BrandMark
+            size={28}
+            className="transition-transform duration-300 group-hover:rotate-[-6deg]"
+          />
+          <span className="flex flex-col leading-none">
+            <span className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight text-ink sm:text-xl">
+              WattPayback
+            </span>
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted sm:inline">
+              energy math
+            </span>
           </span>
         </Link>
 
@@ -39,11 +46,14 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`relative text-sm font-medium transition-colors ${
                   active ? "text-accent-deep" : "text-ink-muted hover:text-ink"
                 }`}
               >
                 {item.label}
+                {active && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-accent" />
+                )}
               </Link>
             );
           })}
@@ -52,7 +62,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-9 w-9 items-center justify-center border border-line bg-surface text-ink md:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center border border-line bg-surface text-ink transition-colors hover:border-accent md:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >

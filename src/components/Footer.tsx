@@ -1,21 +1,25 @@
 import Link from "next/link";
 import { TOOLS } from "@/lib/tools";
+import { BrandMark } from "@/components/Icons";
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-line bg-bg-elevated">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-lg font-bold text-ink">
-            WattPayback
-          </p>
-          <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
+          <div className="flex items-center gap-2.5">
+            <BrandMark size={24} />
+            <p className="font-[family-name:var(--font-display)] text-lg font-bold text-ink">
+              WattPayback
+            </p>
+          </div>
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-muted">
             Transparent home-energy calculators. Every assumption is editable.
             No installer lead forms.
           </p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
             Tools
           </p>
           <ul className="mt-3 space-y-1.5">
@@ -23,7 +27,7 @@ export function Footer() {
               <li key={t.slug}>
                 <Link
                   href={t.href}
-                  className="text-sm text-ink hover:text-accent-deep"
+                  className="text-sm text-ink transition-colors hover:text-accent-deep"
                 >
                   {t.shortTitle}
                 </Link>
@@ -32,7 +36,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
             Site
           </p>
           <ul className="mt-3 space-y-1.5 text-sm">

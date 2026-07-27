@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #eef1f4;
-  --bg-elevated: #f7f9fb;
+  --bg: #e8eef0;
+  --bg-elevated: #f3f7f8;
   --surface: #ffffff;
-  --ink: #15202b;
-  --ink-muted: #4a5a6a;
-  --line: #cfd7df;
+  --ink: #122028;
+  --ink-muted: #4a5d68;
+  --line: #c5d2d8;
   --accent: #0b6e63;
-  --accent-soft: #d7efe9;
+  --accent-soft: #d4efe8;
   --accent-deep: #085249;
   --warn: #9a5b14;
   --warn-soft: #f7ead8;
   --chart: #0b6e63;
   --chart-neg: #a33b2d;
-  --grid: rgba(21, 32, 43, 0.045);
+  --grid: rgba(11, 110, 99, 0.06);
+  --ink-faint: rgba(18, 32, 40, 0.06);
 }
 
 @theme inline {
@@ -48,10 +49,11 @@ body {
   color: var(--ink);
   background-color: var(--bg);
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, transparent 28%),
+    radial-gradient(ellipse 90% 55% at 100% -10%, rgba(11, 110, 99, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at -10% 100%, rgba(47, 92, 120, 0.1), transparent 50%),
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: auto, 28px 28px, 28px 28px;
+  background-size: auto, auto, 32px 32px, 32px 32px;
   font-family: var(--font-body), "Source Sans 3", sans-serif;
 }
 
@@ -110,10 +112,12 @@ a {
   text-underline-offset: 3px;
 }
 
+/* ——— motion ——— */
+
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -121,7 +125,92 @@ a {
   }
 }
 
-@keyframes draw-grid {
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(6px, -10px);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-8px, 6px);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.55;
+  }
+}
+
+@keyframes blink-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes panel-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+@keyframes fade-later {
   from {
     opacity: 0;
   }
@@ -130,22 +219,163 @@ a {
   }
 }
 
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes icon-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
 .hero-rise {
-  animation: rise-in 0.7s ease-out both;
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-rise-delay {
-  animation: rise-in 0.75s ease-out 0.12s both;
+  animation: rise-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .hero-rise-delay-2 {
-  animation: rise-in 0.8s ease-out 0.22s both;
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.hero-art-wrap {
+  animation: slide-in-right 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.hero-art .draw-path,
+.hero-art .draw-curve,
+.hero-art .draw-rect {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: draw 1.6s ease forwards 0.3s;
+}
+
+.hero-art .draw-curve {
+  animation-delay: 0.7s;
+  animation-duration: 1.8s;
+}
+
+.hero-art .float-y {
+  animation: float-y 4.5s ease-in-out infinite;
+}
+
+.hero-art .drift-a {
+  animation: drift-a 6s ease-in-out infinite;
+}
+
+.hero-art .drift-b {
+  animation: drift-b 7s ease-in-out infinite 0.5s;
+}
+
+.hero-art .spin-slow {
+  animation: spin-slow 22s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-art .pulse-ring {
+  animation: pulse-ring 2.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-art .blink-dot {
+  animation: blink-dot 1.6s ease-in-out infinite;
+}
+
+.hero-art .panel-pulse {
+  animation: panel-pulse 3.2s ease-in-out infinite;
+}
+
+.hero-art .fade-later {
+  animation: fade-later 0.6s ease 1.6s both;
+}
+
+.brand-underline {
+  transform-origin: left;
+  animation: underline-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.stagger-card {
+  animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.icon-pop {
+  animation: icon-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tool-card {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+}
+
+.tool-card .arrow-slide {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.tool-card:hover .arrow-slide {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.btn-primary {
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.section-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise,
   .hero-rise-delay,
-  .hero-rise-delay-2 {
-    animation: none;
+  .hero-rise-delay-2,
+  .hero-art-wrap,
+  .stagger-card,
+  .icon-pop,
+  .brand-underline,
+  .hero-art .draw-path,
+  .hero-art .draw-curve,
+  .hero-art .draw-rect,
+  .hero-art .float-y,
+  .hero-art .drift-a,
+  .hero-art .drift-b,
+  .hero-art .spin-slow,
+  .hero-art .pulse-ring,
+  .hero-art .blink-dot,
+  .hero-art .panel-pulse,
+  .hero-art .fade-later {
+    animation: none !important;
+  }
+
+  .tool-card:hover {
+    transform: none;
   }
 }
