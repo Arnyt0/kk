@@ -28,3 +28,17 @@ npm run build
 Nine calculators under `/tools/*` — see the home page. Region defaults (yield + currency) live in React context and localStorage.
 
 Personal/operator details are marked with `TODO` on About, Contact, Privacy and Terms.
+
+## Ads
+
+Reserved ad slots live in `src/components/AdSlot.tsx` and are configured in
+`src/lib/ads.ts`. Until AdSense IDs are set, slots show linked placeholder
+units (`rel="sponsored"`).
+
+Set in Vercel → Environment Variables (see `.env.example`):
+
+- `NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-...`
+- `NEXT_PUBLIC_ADS_SLOT_*` per placement
+
+Or edit the `href` values in `src/lib/ads.ts` to point each slot at your
+affiliate / sponsor URLs.

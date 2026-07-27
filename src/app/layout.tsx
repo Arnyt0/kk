@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { AdSenseScript } from "@/components/AdSenseScript";
 import { RegionProvider } from "@/context/RegionContext";
 import "./globals.css";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body
         className={`${body.variable} ${display.variable} ${mono.variable} antialiased`}
       >
+        <AdSenseScript />
         <RegionProvider>
           <Header />
           <main className="min-h-[70vh]">{children}</main>

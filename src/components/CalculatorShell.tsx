@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { RelatedTools } from "@/components/RelatedTools";
 import { Faq, type FaqItem } from "@/components/Faq";
+import { AdSlot } from "@/components/AdSlot";
 
 export function CalculatorShell({
   title,
@@ -29,9 +30,12 @@ export function CalculatorShell({
         </p>
       </div>
 
+      <AdSlot placement="tools-top" className="mt-8" />
+
       <div className="mt-8">{children}</div>
 
       <Faq items={faq} />
+      <AdSlot placement="tools-bottom" className="mt-10" />
       <RelatedTools slug={slug} />
     </div>
   );

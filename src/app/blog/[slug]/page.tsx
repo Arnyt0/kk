@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllSlugs, getPost } from "@/lib/blog";
 import { JsonLd } from "@/components/JsonLd";
+import { AdSlot } from "@/components/AdSlot";
 import Link from "next/link";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -51,9 +52,11 @@ export default async function BlogPostPage({ params }: Props) {
         {post.title}
       </h1>
       <p className="mt-4 text-lg text-ink-muted">{post.description}</p>
+      <AdSlot placement="blog-inline" className="mt-8" />
       <div className="prose-blog mt-8">
         <MDXRemote source={post.content} />
       </div>
+      <AdSlot placement="blog-bottom" className="mt-10" />
     </article>
   );
 }

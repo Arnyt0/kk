@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AdSlot } from "@/components/AdSlot";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function BlogIndexPage() {
       <p className="mt-3 text-ink-muted">
         How the energy numbers work — with links back to the calculators.
       </p>
+      <AdSlot placement="blog-inline" className="mt-8" />
       <ul className="mt-10 divide-y divide-line border-y border-line">
         {posts.map((post) => (
           <li key={post.slug} className="py-6">
@@ -36,6 +38,7 @@ export default function BlogIndexPage() {
           </li>
         ))}
       </ul>
+      <AdSlot placement="blog-bottom" className="mt-10" />
     </div>
   );
 }

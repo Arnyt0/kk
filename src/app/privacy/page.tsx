@@ -22,13 +22,25 @@ export default function PrivacyPage() {
           Region preferences may be stored in your browser&apos;s localStorage
           so defaults persist between visits.
         </p>
+        <h2>Advertising</h2>
+        <p>
+          WattPayback shows advertisement slots on some pages (home, calculators,
+          and articles). Until Google AdSense (or another network) is connected,
+          those slots may link to partner / sponsor destinations. When AdSense is
+          enabled, Google and its partners may use cookies or similar technologies
+          to serve personalized or non-personalized ads subject to your consent
+          choices and Google&apos;s policies.
+        </p>
+        <p>
+          {/* TODO: add AdSense / CMP details once live */}
+          Publisher / AdSense ID: TODO — set{" "}
+          <code>NEXT_PUBLIC_ADSENSE_CLIENT</code> in the host environment.
+        </p>
         <h2>Hosting and logs</h2>
         <p>
-          {/* TODO: describe hosting provider and analytics once chosen */}
-          The site is intended to be hosted statically (e.g. on Vercel or
-          similar). Hosting providers may process standard server logs (IP
-          address, user agent, pages requested). TODO — name the host and any
-          analytics or ad network once enabled.
+          The site is hosted on Vercel. Hosting providers may process standard
+          server logs (IP address, user agent, pages requested). TODO — name any
+          additional analytics once enabled.
         </p>
         <h2>Contact</h2>
         <p>

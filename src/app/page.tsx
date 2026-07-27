@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
+import { AdSlot } from "@/components/AdSlot";
 import { TOOLS } from "@/lib/tools";
 import { getAllPosts } from "@/lib/blog";
 
@@ -61,6 +62,8 @@ export default function HomePage() {
             <ToolCard key={tool.slug} tool={tool} index={i} />
           ))}
         </div>
+
+        <AdSlot placement="home-mid" className="mt-12" />
       </section>
 
       <section className="border-t border-line bg-bg-elevated">
@@ -99,6 +102,8 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+
+          <AdSlot placement="home-bottom" className="mt-12" />
         </div>
       </section>
     </div>
